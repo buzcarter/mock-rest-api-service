@@ -17,11 +17,11 @@ function apiHandler(req, res) {
   }
 
   if (delay < 1) {
-    return res.send(code);
+    return res.sendStatus(code);
   }
 
   setTimeout(function () {
-    return res.send(code);
+    return res.sendStatus(code);
   }, delay * 1000);
 }
 

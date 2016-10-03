@@ -1,0 +1,24 @@
+{
+  "name": "api-mock-response",
+  "version": "1.0.0",
+  "description": "Mock REST API endpoint responses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mock",
+    "rest",
+    "api",
+    "endpoint",
+    "timeout",
+    "status",
+    "response",
+    "test"
+  ],
+  "author": "B.Carter",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

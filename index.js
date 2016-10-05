@@ -57,7 +57,7 @@ var app = express();
 
 app.get('/list', listHandler);
 app.get('/random/:delay(\\d*)?', randomHandler);
-app.get('/status/:code(\\d{3})/:delay(\\d*)?', statusHandler);
+app.route('/status/:code(\\d{3})/:delay(\\d*)?').get(statusHandler).post(statusHandler);
 app.use(defaultHandler);
 
 app.listen(SERVER_PORT, function () {

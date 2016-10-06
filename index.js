@@ -1,7 +1,7 @@
 /* jshint esnext:true */
 var express = require('express');
 
-const SERVER_PORT = 3080;
+const DEFAULT_PORT = 3080;
 const UNAVAILABLE_CODES = [100, 101];
 const VALID_CODES = [200, 201, 202, 203, 204, 205, 206, 300, 301, 302, 303, 304, 305, 306, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, 505];
 const MAX_DELAY = 600;
@@ -53,13 +53,18 @@ function defaultHandler(req, res) {
   res.send('Unrecognized URL.\nUsage:\n /list\n /random\n/status/{code}');
 }
 
-var app = express();
+function start(argv) {
+  var port = (argv.length > 2 && !isNaN(argv[2])) ? parseInt(argv[2], 10) : DEFAULT_PORT;
+  var app = express();
 
-app.get('/list', listHandler);
-app.get('/random/:delay(\\d*)?', randomHandler);
-app.route('/status/:code(\\d{3})/:delay(\\d*)?').get(statusHandler).post(statusHandler);
-app.use(defaultHandler);
+  app.get('/list', listHandler);
+  app.get('/random/:delay(\\d*)?', randomHandler);
+  app.route('/status/:code(\\d{3})/:delay(\\d*)?').get(statusHandler).post(statusHandler);
+  app.use(defaultHandler);
 
-app.listen(SERVER_PORT, function () {
-  console.log('Listening on port ' + SERVER_PORT);
-});
+  app.listen(port, function () {
+    console.log('Listening on port ' + port);
+  });
+}
+
+start(process.argv);

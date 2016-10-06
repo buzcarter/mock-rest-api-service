@@ -8,11 +8,18 @@ This exists solely because the incredibly useful `testinsane.com/rte` was made p
 
 ## Simple Example Usage
 
-Start Server
+Start server
 
 ```sh
 $ node index
 Listening on port 3080
+```
+
+Start server on a different port
+
+```sh
+$ node index 8089
+Listening on port 8089
 ```
 
 Call your mock service endpoint:

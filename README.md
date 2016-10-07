@@ -1,14 +1,24 @@
-# Local Testing API Response Codes
+# Mock REST API Service
 
-A mock REST API endpoint that'll return whichever status code you request after an `n` second delay, specified by you.
+Test how well your app handles errors returned by RESTful API Services. 
+
+This basic NodeJs app allows you to force any Response Code with the response delay (in seconds) of your choosing.
 
 ###### Shout Outs:
 
-This exists solely because the incredibly useful `testinsane.com/rte` was made private, this is my implementation of its features.
+*This exists solely because [Test Insane](https://testinsane.com) took down their RestFul Test Endpoints tool, upon which I'd grown quite dependent. This is a crude approximation of that service.*
 
-## Simple Example Usage
+## Installation
 
-Start server
+Dependencies: this was written under Node version `v4.4.2` and npm version `2.15.0`.
+
+After downloading/cloning this repo install its dependencies from within a terminal:
+
+```sh
+$ npm install
+```
+
+### Launch The App
 
 ```sh
 $ node index
@@ -22,15 +32,19 @@ $ node index 8089
 Listening on port 8089
 ```
 
-Call your mock service endpoint:
+### Simple Example Usage
 
-```bs
+Test that the service is running as expected by call the status endpoint via curl or in your web browser:
+
+```sh
 $ curl localhost:3080/status/302/6
 ```
 
 Returns response code `302` after a 6 second delay.
 
-### Server Output
+#### Server Output
+
+The server echoes each request received. (TODO: include timestamp)
 
 ```sh
 $ node index
@@ -38,10 +52,10 @@ Listening on port 3080
 Request => (Response Code: 301, Delay: 0 seconds)
 ```
 
-## Documentation
+## Endpoints Documentation
 
 * **Method GET**: Get endpoints responds with HTTP Status Code and empty content. 
-* **Method POST**: Post endpoints responds with HTTP Status Code and data sent by the client as part of request. 
+* ~~**Method POST**: Post endpoints responds with HTTP Status Code and data sent by the client as part of request~~. (Not available yet)
 
 Detailed individual endpoint information is given bellow.
 

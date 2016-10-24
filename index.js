@@ -50,7 +50,7 @@ function randomHandler(req, res) {
 
 function defaultHandler(req, res) {
   console.log('Default');
-  res.send('Unrecognized URL.\nUsage:\n /list\n /random\n/status/{code}');
+  res.send('Unrecognized URL.\nUsage:\n  /list\n  /random\n  /status/{code}\n\n"random" & "status" accept optional delay, \ni.e. /status/404/8 - returns 404 after 8 second delay\n');
 }
 
 function start(argv) {
